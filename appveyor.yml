@@ -85,7 +85,7 @@ install:
 - cmd: cd %APPVEYOR_BUILD_FOLDER%
 - cmd: |
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    php -r "if (hash_file('SHA384', 'composer-setup.php') === trim(file_get_contents('https://composer.github.io/installer.sig')) { echo 'Composer installer verified' . PHP_EOL; } else { unlink('composer-setup.php'); die('Composer installer corrupt' . PHP_EOL); }"
+    php -r "if (hash_file('SHA384', 'composer-setup.php') === trim(file_get_contents('https://composer.github.io/installer.sig'))) { echo 'Composer installer verified' . PHP_EOL; } else { unlink('composer-setup.php'); die('Composer installer corrupt' . PHP_EOL); }"
     php composer-setup.php
     php -r "unlink('composer-setup.php');"
 
